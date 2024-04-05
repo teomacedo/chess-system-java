@@ -1,3 +1,5 @@
+//https://github.com/acenelio/chess-system-java
+
 package aplication;
 
 import java.util.ArrayList;
@@ -39,6 +41,16 @@ public class Program {
 				
 				if(capturedPiece != null) {
 					captured.add(capturedPiece);
+				}
+				
+				if(chessMatch.getPromoted() != null) {
+					System.out.println("Informa a letra da peça para promoção (B/N/R/Q): ");
+					String type = sc.nextLine().toUpperCase();
+					while (!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
+						System.out.println("Informa a letra da peça para promoção (B/N/R/Q): ");
+						type = sc.nextLine().toUpperCase();
+					}
+					chessMatch.replacePromoterPiece(type);
 				}
 			}
 			catch(ChessException e) {
